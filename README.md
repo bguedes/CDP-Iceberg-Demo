@@ -117,7 +117,7 @@ order by year desc;
 ALTER TABLE airlines.flights CHANGE COLUMN flightnum flightnum bigint;
 ```
 
-Inserting data  
+Inserting new data for 2021 
 
 ```sql
 INSERT INTO TABLE airlines.flights VALUES (
@@ -142,7 +142,7 @@ INSERT INTO TABLE airlines.flights VALUES (
 3,
 13,
 0,
-NA,
+'NA',
 0,
 NULL,
 NULL,
@@ -203,4 +203,37 @@ nasdelay int,
 securitydelay int,
 lateaircraftdelay int,
 year int);
+```
+Insert new data for 2022
+
+```sql
+INSERT INTO TABLE airlines.flights VALUES (
+7,
+22,
+3,
+1606,
+1300,
+8,
+2131,
+'NW',
+842,
+'N540US',
+302,
+331,
+286,
+157,
+186,
+'ANC',
+'MSP',
+2518,
+3,
+13,
+0,
+0,
+NULL,
+NULL,
+NULL,
+NULL,
+NULL,
+2021);
 ```
