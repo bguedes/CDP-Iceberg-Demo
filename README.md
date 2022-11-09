@@ -235,7 +235,7 @@ NULL,
 NULL,
 NULL,
 NULL,
-2021);
+2022);
 ```
 
 Using Impala with Iceberg Tables<br>
