@@ -117,6 +117,8 @@ ALTER TABLE airlines.flights CHANGE COLUMN flightnum flightnum bigint;
 
 ### Deleting column
 
+deleting column cancellationcode
+
 ```sql
 ALTER TABLE airlines.flights REPLACE COLUMNS ( 
 month int,
