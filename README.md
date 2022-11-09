@@ -1,6 +1,38 @@
 # CDP-Iceberg-Demo
 Example of Iceberg usage on CDP using CDW
 
+
+## Hive
+
+### Create Iceberg Tables
+
+```sql
+drop database if exists airlines cascade;
+
+create database airlines;
+
+create table airlines.unique_tickets
+STORED BY ICEBERG AS
+select * from airlinedata.unique_tickets_csv;
+
+create table airlines.airlines
+STORED BY ICEBERG AS
+select * from airlinedata.airlines_csv;
+
+create table airlines.airports
+STORED BY ICEBERG AS
+select * from airlinedata.airports_csv;
+
+create table airlines.planes
+STORED BY ICEBERG AS
+select * from airlinedata.planes_csv;
+
+create table airlines.flights
+STORED BY ICEBERG AS
+select * from airlinedata.flights_csv;
+
+```
+
 ## Impala
 
 ### Create Iceberg Tables
@@ -12,23 +44,23 @@ create database airlines;
 
 create table airlines.unique_tickets
 STORED AS ICEBERG AS
-select * from airlines_csv.unique_tickets_csv;
+select * from airlinedata.unique_tickets_csv;
 
 create table airlines.airlines
 STORED AS ICEBERG AS
-select * from airlines_csv.airlines_csv;
+select * from airlinedata.airlines_csv;
 
 create table airlines.airports
 STORED AS ICEBERG AS
-select * from airlines_csv.airports_csv;
+select * from airlinedata.airports_csv;
 
 create table airlines.planes
 STORED AS ICEBERG AS
-select * from airlines_csv.planes_csv;
+select * from airlinedata.planes_csv;
 
 create table airlines.flights
 STORED AS ICEBERG AS
-select * from airlines_csv.flights_csv;
+select * from airlinedata.flights_csv;
 
 ```
 
@@ -81,5 +113,39 @@ order by year desc;
 
 ### Changing colunm type
 
+ALTER TABLE airlines.flights CHANGE COLUMN flightnum flightnum bigint;
+
 ### Deleting column
 
+```sql
+ALTER TABLE airlines.flights REPLACE COLUMNS ( 
+month int,
+dayofmonth int,
+dayofweek int,
+deptime int,
+crsdeptime int,
+arrtime int,
+crsarrtime int,
+uniquecarrier string,
+flightnum int,
+tailnum string,
+actualelapsedtime int,
+crselapsedtime int,
+airtime int,
+arrdelay int,
+depdelay int,
+origin string,
+dest string,
+distance int,
+taxiin int,
+taxiout int,
+cancelled int,
+cancellationcode string,
+diverted string,
+carrierdelay int,
+weatherdelay int,
+nasdelay int,
+securitydelay int,
+lateaircraftdelay int,
+year int);
+```
