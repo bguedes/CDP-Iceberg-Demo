@@ -54,3 +54,40 @@ ORDER BY year desc;
 ALTER TABLE airlines.flights
 SET PARTITION spec (year );
 ```
+
+### Show new Table description
+
+```sql
+SHOW CREATE TABLE airlines.flights;
+```
+
+### Time Travel
+
+### Changing colunm type
+
+### Deleting column
+
+```sql
+select * from airlines.flights.history;
+ 
+select year, count(*) from airlines.flights
+FOR SYSTEM_VERSION AS OF <FirstSNAPSHOTID>
+group by year
+order by year desc;
+  
+select year, count(*) from airlines.flights
+FOR SYSTEM_VERSION AS OF <SecondSNAPSHOTID>
+group by year
+order by year desc;
+
+select year, count(*) from airlines.flights
+FOR SYSTEM_VERSION AS OF <FirstSNAPSHOTID>
+group by year
+order by year desc;
+
+select year, count(*) from airlines.flights
+FOR SYSTEM_VERSION AS OF <SecondSNAPSHOTID>
+group by year
+order by year desc;
+```
+
