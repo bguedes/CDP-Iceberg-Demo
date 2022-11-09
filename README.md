@@ -3,6 +3,8 @@ Example of Iceberg usage on CDP using CDW
 
 ## Impala
 
+### Create Iceberg Tables
+
 ```sql
 drop database if exists airlines cascade;
 
@@ -28,4 +30,27 @@ create table airlines.flights
 STORED AS ICEBERG AS
 select * from airlines_csv.flights_csv;
 
+```
+
+Show Table fligths decription
+
+```sql
+SHOW CREATE TABLE airlines.flights;
+```
+
+### Run simple query
+
+```sql
+SELECT year, count(*) 
+FROM airlines.flights
+GROUP BY year
+ORDER BY year desc;
+
+```
+
+### Change Table Partition
+
+```sql
+ALTER TABLE airlines.flights
+SET PARTITION spec (year );
 ```
