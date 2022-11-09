@@ -117,6 +117,58 @@ order by year desc;
 ALTER TABLE airlines.flights CHANGE COLUMN flightnum flightnum bigint;
 ```
 
+Inserting data  
+
+```sql
+INSERT INTO TABLE airlines.flights VALUES (
+7,
+22,
+3,
+1606,
+1300,
+8,
+2131,
+'NW',
+842,
+'N540US',
+302,
+331,
+286,
+157,
+186,
+'ANC',
+'MSP',
+2518,
+3,
+13,
+0,
+NA,
+0,
+NULL,
+NULL,
+NULL,
+NULL,
+NULL,
+2021);
+```
+
+Check new snapshot
+
+
+```sql
+select * from airlines.flights.history;
+ 
+select year, count(*) from airlines.flights
+FOR SYSTEM_VERSION AS OF <FirstSNAPSHOTID>
+group by year
+order by year desc;
+  
+select year, count(*) from airlines.flights
+FOR SYSTEM_VERSION AS OF <SecondSNAPSHOTID>
+group by year
+order by year desc;
+```
+
 ### Deleting column
 
 deleting column cancellationcode
