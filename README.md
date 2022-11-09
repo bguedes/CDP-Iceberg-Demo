@@ -238,8 +238,8 @@ NULL,
 2021);
 ```
 
-Using Impala with Iceberg Tables
+Using Impala with Iceberg Tables<br>
 https://impala.apache.org/docs/build/html/topics/impala_iceberg.html
 
-Hive
+Hive<br>
 https://iceberg.apache.org/docs/latest/hive/
