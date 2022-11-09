@@ -79,15 +79,5 @@ select year, count(*) from airlines.flights
 FOR SYSTEM_VERSION AS OF <SecondSNAPSHOTID>
 group by year
 order by year desc;
-
-select year, count(*) from airlines.flights
-FOR SYSTEM_VERSION AS OF <FirstSNAPSHOTID>
-group by year
-order by year desc;
-
-select year, count(*) from airlines.flights
-FOR SYSTEM_VERSION AS OF <SecondSNAPSHOTID>
-group by year
-order by year desc;
 ```
 
