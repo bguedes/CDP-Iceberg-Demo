@@ -113,7 +113,9 @@ order by year desc;
 
 ### Changing colunm type
 
+```sql
 ALTER TABLE airlines.flights CHANGE COLUMN flightnum flightnum bigint;
+```
 
 ### Deleting column
 
