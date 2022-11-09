@@ -63,9 +63,6 @@ SHOW CREATE TABLE airlines.flights;
 
 ### Time Travel
 
-### Changing colunm type
-
-### Deleting column
 
 ```sql
 select * from airlines.flights.history;
@@ -80,4 +77,9 @@ FOR SYSTEM_VERSION AS OF <SecondSNAPSHOTID>
 group by year
 order by year desc;
 ```
+
+
+### Changing colunm type
+
+### Deleting column
 
